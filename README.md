@@ -34,4 +34,4 @@ vuejs, firebase
 ### 가이드 및 유의사항
 >1) [부스트코스 에이스 2019: 커리어 부스팅 프로그램 전체 가이드 확인하기](https://docs.google.com/document/d/1-5fw6y2RopqAzfEsQJXjaKib63_7fuqeIdq-ulFzTP8/edit?usp=sharing) <br>
 >2) [기업 프로젝트 가이드 확인하기](https://docs.google.com/presentation/d/1zqfl-b0s_xAmA8JicA7diY5O8NapnZj0XqoPqK0fDZI/edit?usp=sharing)
-
+>3) [Slack 바로가기](boostcourseofficial.slack.com)
