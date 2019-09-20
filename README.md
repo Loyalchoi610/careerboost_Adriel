@@ -17,7 +17,7 @@ vuejs, firebase
 - 운영 기간: 9월 10일(화) ~ 9월 27일(금)
 - 공간 사용 가능 기간: 9월 24일(화) ~ 9월 27일(금) 
   - boostcourse@connect.or.kr로 신청/ [위치](https://connect.or.kr/contact)
-- 기업 피드백: 9월 23일(월) ~ 9월 27일(금)
+- 기업 피드백: 9월 23일(월) ~ 9월 27일(금) - 기업이 선정하여 공지
 - **최종 결과물 제출: 9월 29일(일)**
   - 최종 결과물: [셀프리뷰(Lessons Learned) 제출하기](https://forms.gle/ed22KEsMJkkuigGL6) + 최종 프로젝트 PR
   
