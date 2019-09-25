@@ -10,6 +10,12 @@ export default new Router({
       path: '/',
       name: 'TodoList',
       component: TodoList
+    },
+    {
+      path: '/TodoForm',
+      name: 'Todoform',
+
+      component: () => import('../views/TodoForm.vue')
     }
   ]
 })

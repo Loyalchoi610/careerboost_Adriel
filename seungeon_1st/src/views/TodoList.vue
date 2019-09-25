@@ -59,7 +59,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'TodoList',
   methods: {
-    getYearMonthDay: (timestamp) => {
+    getYearMonthDay (timestamp) {
       let date = timestamp.toDate()
       let mm = date.getMonth() + 1
       let dd = date.getDate()
@@ -67,7 +67,7 @@ export default {
         (mm > 9 ? '' : '0') + mm + '.',
         (dd > 9 ? '' : '0') + dd
       ].join('')
-    },
+    }
   },
   computed: {
     ...mapState(['Todo'])

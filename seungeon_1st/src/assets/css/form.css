@@ -1,0 +1,65 @@
+@charset "UTF-8";
+h1{
+	text-align: center;
+}
+form{
+	padding-left: 70px;
+}
+label, input[type="text"]{
+	display: block;
+
+}
+input[type="text"]{
+	height: 30px;
+	margin: 10px 0 30px 0;
+	font-size: 16px;
+}
+label[for="todo"] input{
+	width: 95%;
+}
+label[for="who"] input{
+	width: 50%
+}
+label.sequence span{
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+#main{
+	background-color: #bab8b2;
+	margin: 0;
+	height: 100%;
+	padding: 5px 10px;
+}
+#submitForm{
+	background-color: #ffffff;
+	padding: 30px 0;
+	width: 40%;
+
+	margin: auto;
+	overflow: hidden;
+}
+#back{
+	text-decoration: underline;
+	padding: 10px 30px;
+
+}
+button:focus{
+	outline: 0;
+}
+
+
+.white{
+	border-style: solid;
+	color: #000000;
+	background-color: #ffffff;
+}
+
+.selection{
+	margin-top: 10px;
+}
+
+
+.back{
+	text-decoration: underline;
+}
