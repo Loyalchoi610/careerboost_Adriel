@@ -1,0 +1,49 @@
+
+header .todo{
+    color: #008080;
+    font-weight:bold;
+    font-size: 24px;
+    transform: rotate(-30deg);
+    float: left;
+}
+header .register{
+    display: block;
+    float: right;
+    padding: 10px 40px;
+    margin-right: 30px;
+    background-color: #16e1fe;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+header .register:link, header .register:visited{
+    color: white;
+    text-decoration: none;
+}
+#container{
+    padding-left: 120px;
+}
+.card_title{
+    margin: 10px 10px 0 10px;
+    font-weight: bold;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #408080;
+}
+.card_content{
+    margin: 10px 10px 0 10px;
+    padding: 15px 20px;
+    background-color: #c2fce3;
+}
+.card_content .title{
+    margin-bottom: 10px;
+}
+.card_content .content{
+    overflow: hidden;
+    font-size: 14px;
+}
+.card_content .content .btn_todo{
+    float: right;
+}

@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@font-face{
+    font-family: Nanum;
+    src: url(../fonts/NanumGothic.ttf);
+}
+*{
+    font-family: Nanum, Sans-serif, serif;
+}
+html,body{
+    background-color: #ffffff;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#app{
+    height: 100%;
+}
+.row{
+
+}
+.row:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+.col-4{
+    float: left;
+    width: 33.3%;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.btn{
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #00ff80;
+    margin-right : 15px;
+    cursor: pointer;
+}
+.block{
+    display: block;
+}
+.inline{
+    display: inline;
+}
+.inline-block{
+    display: inline-block;
+}
+.white{
+    background-color: #ffffff;
+    color: #000000;
+}
+.sky{
+    background-color: #0080ff;
+}
+h1{
+    margin: 0;
+}
+
+header{
+    overflow: visible;
+    height: 70px;
+    margin-top: 50px;
+}
+
