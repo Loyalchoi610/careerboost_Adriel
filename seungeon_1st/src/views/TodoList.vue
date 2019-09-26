@@ -67,6 +67,10 @@ export default {
         (mm > 9 ? '' : '0') + mm + '.',
         (dd > 9 ? '' : '0') + dd
       ].join('')
+    },
+    moveTodoItem (type, index) {
+      let todoItem = this.Todo[type][index]
+      this.$store.dispatch('Todo/updateTodo', { todoItem, index }).then()
     }
   },
   computed: {
