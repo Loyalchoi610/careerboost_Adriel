@@ -1,8 +1,8 @@
 <template>
   <div>
     <header>
-      <div class="todo">나의 해야할 일들</div>
-      <router-link  to="/TodoForm" class="register">새로운 TODO 등록</router-link>
+      <div class="todo">{{title}}</div>
+      <router-link  to="/TodoForm" class="register">{{new_todo_btn}}</router-link>
     </header>
     <section id="container">
       <section class= "row">
@@ -78,6 +78,8 @@ export default {
   },
   data () {
     return {
+      title: unescape('%uB098%uC758%20%uD574%uC57C%uD560%20%uC77C%uB4E4'),
+      new_todo_btn: unescape('%uC0C8%uB85C%uC6B4%20TODO%20%uB4F1%uB85D'),
       name_regDate: unescape('%uB4F1%uB85D%uB0A0%uC9DC'),
       name_priority: unescape('%uC6B0%uC120%uC21C%uC704')
     }
