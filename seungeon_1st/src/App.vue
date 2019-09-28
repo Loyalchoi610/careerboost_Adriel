@@ -4,16 +4,24 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'App',
   created () {
-    Promise.all([this.$store.dispatch('Todo/loadTodos'),
-      this.$store.dispatch('Todo/loadDoings'),
-      this.$store.dispatch('Todo/loadDones')])
-      .then()
+    this.loadTodos()
+    this.loadDoings()
+    this.loadDones()
+  },
+  methods: {
+    ...mapActions({
+      loadTodos: 'Todo/loadTodos',
+      loadDoings: 'Todo/loadDoings',
+      loadDones: 'Todo/loadDones'
+    })
   }
 }
 </script>
-<style>
-  @import "assets/css/layout.css";
+<style lang="scss">
+  @import "assets/css/layout";
 </style>

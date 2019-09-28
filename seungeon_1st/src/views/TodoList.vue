@@ -54,11 +54,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'TodoList',
   methods: {
+    ...mapActions({ update: 'Todo/updateTodo' }),
     getYearMonthDay (timestamp) {
       let date = timestamp.toDate()
       let mm = date.getMonth() + 1
@@ -69,8 +70,7 @@ export default {
       ].join('')
     },
     moveTodoItem (type, index) {
-      let todoItem = this.Todo[type][index]
-      this.$store.dispatch('Todo/updateTodo', { todoItem, index }).then()
+      this.update({ todoItem: this.Todo[type][index], index }).then()
     }
   },
   computed: {
@@ -87,6 +87,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  @import "../assets/css/list.css";
+<style scoped lang="scss">
+  @import "../assets/css/list.scss";
 </style>

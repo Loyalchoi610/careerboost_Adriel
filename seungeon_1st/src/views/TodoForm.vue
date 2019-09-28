@@ -28,10 +28,12 @@
 
 <script>
 import * as firebase from 'firebase/app'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'TodoForm',
   methods: {
+    ...mapActions({ addItem: 'Todo/addTodoItem' }),
     goBack () {
       history.back()
     },
@@ -56,7 +58,7 @@ export default {
         regDate: firebase.firestore.Timestamp.fromDate(new Date())
       }
 
-      this.$store.dispatch('Todo/addTodoItem', todoItem).then(
+      this.addItem(todoItem).then(
         this.$router.push('/')
       )
     }
@@ -81,6 +83,6 @@ export default {
 }
 </script>
 
-<style scoped>
-    @import "../assets/css/form.css";
+<style scoped lang="scss">
+    @import "../assets/css/form.scss";
 </style>
