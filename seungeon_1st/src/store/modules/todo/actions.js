@@ -1,7 +1,7 @@
 export default {
   loadTodos ({ commit, rootState }) {
     return new Promise(resolve => {
-      rootState.db.collection('Todo')
+      rootState.Db.collection('Todo')
         .orderBy('regDate', 'desc')
         .get()
         .then(docs => {
@@ -14,7 +14,7 @@ export default {
   },
   loadDoings ({ commit, rootState }) {
     return new Promise(resolve => {
-      rootState.db.collection('Doing')
+      rootState.Db.collection('Doing')
         .orderBy('regDate', 'desc')
         .get()
         .then(docs => {
@@ -27,7 +27,7 @@ export default {
   },
   loadDones ({ commit, rootState }) {
     return new Promise(resolve => {
-      rootState.db.collection('Done')
+      rootState.Db.collection('Done')
         .orderBy('regDate', 'desc')
         .get()
         .then(docs => {
@@ -40,7 +40,7 @@ export default {
   },
   addTodoItem ({ commit, rootState }, todoItem) {
     return new Promise(resolve => {
-      rootState.db.collection('Todo')
+      rootState.Db.collection('Todo')
         .add(todoItem)
         .then(doc => {
           commit('addTodoItem', { ...todoItem, id: doc.id })
@@ -54,7 +54,7 @@ export default {
     let newtodoItem = { ...todoItem }
 
     return new Promise((resolve, reject) => {
-      rootState.db.runTransaction(transaction => {
+      rootState.Db.runTransaction(transaction => {
         newtodoItem.type = newCollectionName
         newtodoItem.id = rootState.db.collection(newCollectionName).doc().id
         transaction.delete(rootState.db.collection(oldCollectionName).doc(todoItem.id))

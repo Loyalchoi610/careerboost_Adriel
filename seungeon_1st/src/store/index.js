@@ -16,7 +16,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 export default new Vuex.Store({
   state: {
-    DB: firebase.firestore()
+    Db: firebase.firestore()
   },
   mutations: {
 
