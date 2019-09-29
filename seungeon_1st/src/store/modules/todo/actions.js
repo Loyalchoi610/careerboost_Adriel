@@ -1,49 +1,38 @@
+import { Observable } from 'rxjs'
+const orderByPriority = (a, b) => a.sequence - b.sequence
 export default {
   loadTodos ({ commit, rootState }) {
-    return new Promise(resolve => {
+    new Observable(observer => {
       rootState.Db.collection('Todo')
         .orderBy('regDate', 'desc')
-        .get()
-        .then(docs => {
-          docs.forEach(doc => {
-            commit('addTodoItem', { ...doc.data(), id: doc.id })
-          })
-          resolve()
-        })
+        .onSnapshot(observer)
+    }).subscribe(querySnapshot => {
+      commit('setTodoItem', querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort(orderByPriority))
     })
   },
   loadDoings ({ commit, rootState }) {
-    return new Promise(resolve => {
+    new Observable(observer => {
       rootState.Db.collection('Doing')
         .orderBy('regDate', 'desc')
-        .get()
-        .then(docs => {
-          docs.forEach(doc => {
-            commit('addTodoItem', { ...doc.data(), id: doc.id })
-          })
-          resolve()
-        })
+        .onSnapshot(observer)
+    }).subscribe(querySnapshot => {
+      commit('setDoingItem', querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort(orderByPriority))
     })
   },
   loadDones ({ commit, rootState }) {
-    return new Promise(resolve => {
+    new Observable(observer => {
       rootState.Db.collection('Done')
         .orderBy('regDate', 'desc')
-        .get()
-        .then(docs => {
-          docs.forEach(doc => {
-            commit('addTodoItem', { ...doc.data(), id: doc.id })
-          })
-          resolve()
-        })
+        .onSnapshot(observer)
+    }).subscribe(querySnapshot => {
+      commit('setDoneItem', querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort(orderByPriority))
     })
   },
   addTodoItem ({ commit, rootState }, todoItem) {
     return new Promise(resolve => {
       rootState.Db.collection('Todo')
         .add(todoItem)
-        .then(doc => {
-          commit('addTodoItem', { ...todoItem, id: doc.id })
+        .then(() => {
           resolve()
         })
     })
@@ -52,17 +41,14 @@ export default {
     let oldCollectionName = todoItem.type
     let newCollectionName = todoItem.type === 'Todo' ? 'Doing' : 'Done'
     let newtodoItem = { ...todoItem }
-
     return new Promise((resolve, reject) => {
       rootState.Db.runTransaction(transaction => {
         newtodoItem.type = newCollectionName
-        newtodoItem.id = rootState.db.collection(newCollectionName).doc().id
-        transaction.delete(rootState.db.collection(oldCollectionName).doc(todoItem.id))
-        transaction.set(rootState.db.collection(newCollectionName).doc(newtodoItem.id), newtodoItem)
+        newtodoItem.id = rootState.Db.collection(newCollectionName).doc().id
+        transaction.delete(rootState.Db.collection(oldCollectionName).doc(todoItem.id))
+        transaction.set(rootState.Db.collection(newCollectionName).doc(newtodoItem.id), newtodoItem)
         return Promise.resolve('success')
       }).then(() => {
-        commit('removeTodoItem', { type: oldCollectionName, index })
-        commit('addTodoItem', newtodoItem)
         resolve()
       }).catch(err => {
         reject(err)
